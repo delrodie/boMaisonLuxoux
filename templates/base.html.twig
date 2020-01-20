@@ -2,56 +2,182 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}La Maison Luxoux Company{% endblock %}</title>
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
         {% block stylesheets %}
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/bootstrap.min.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/owl.theme.default.min.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/owl.carousel.min.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/animate.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/flaticon.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/font-awesome.min.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/nice-select.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/magnific-popup.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/meanmenu.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/responsive.css')) }}">
+            <link rel="stylesheet" href="{{ absolute_url(asset('ressources/css/maisonluxoux.css')) }}">
         {% endblock %}
+        {% block slider %}{% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="{{ path('homepage') }}">
-                <img src="{{ asset('doc/icon_bw.png') }}" width="30" alt=""> Symfony 4
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Articles
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('article_index') }}">Liste</a>
-                            <a class="dropdown-item" href="{{ path('article_new') }}">Ajouter</a>
-                        </div>
-                    </li>
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-cog"></i> Paramètres
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ path('user_index') }}">Utilisateurs</a>
-                            </div>
-                        </li>
-                    {% endif %}
-                </ul>
-                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <a href="{{ path('app_logout') }}" class="nav-link" style="color:#ffffff">Deconnexion</a>
-                {% endif %}
+        <div class="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+        <div class="navbar-area">
+            <div class="mobile-nav">
+                <a href="#" class="logo">
+                    <img src="{{ absolute_url(asset('ressources/images/logo_58.jpg')) }}" alt="La Maison Luxoux Company">
+                </a>
             </div>
-        </nav>
+
+            <div class="main-nav giano-nav-two">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="{{ absolute_url(asset('ressources/images/logo_58.jpg')) }}" alt="La Maison Luxoux Company">
+                        </a>
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a href="{{ absolute_url(path('homepage'))}}" class="nav-link active">Accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">La Maison</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Nos produits</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Champagnes</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Vins</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item contact-number">
+                                    <a href="tel:+22551919165" class="nav-link">
+                                        <i class="fa fa-phone"></i>
+                                        +225 51 91 91 65 / 69 69 34 19
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
         {% block body %}{% endblock %}
+        <footer class="footer-top-area pt-100">
+            <div class="container">
+                <div class="row footer-wrapper">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-widget">
+                            <a class="brand" href="#">
+                                <img src="{{ absolute_url(asset('ressources/images/logo-footer.png')) }}" alt="footer-logo">
+                            </a>
+                            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  incididunt  labore et dolore magna aliqua. Quis ipsum suspendisse ultrices.Risus commodo.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-8 col-md-8">
+                        <div class="single-widget single-widgets">
+                            <h3>Champagnes</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">Cuvée 2H</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cuvée blanc de blanc</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cuvée rosée</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cuvée de selection</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cuvée de réserve</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-widget single-widgetss">
+                            <h3>Vins</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">Château du Tertre Rouge</a>
+                                </li>
+                                <li>
+                                    <a href="#">Château de Sablet</a>
+                                </li>
+                                <li>
+                                    <a href="#">Château du Tertre moelleux</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-widget">
+                            <h3>Contact</h3>
+                            <ul>
+                                <li class="address">
+                                    <i class="fa fa-map-marker"></i>
+                                    Cocody-Angré 7e tranche, Abidjan | Côte d'Ivoire
+                                </li>
+                                <li class="address">
+                                    <i class="fa fa-phone"></i>
+                                    <a href="tel:+22551919165">+225 51 91 91 65 / 69 69 34 19</a>
+                                </li>
+                                <li class="address">
+                                    <i class="fa fa-envelope"></i>
+                                    <a href="mailto:info@luxouxcompany.com">info@luxouxcompany.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div>
+                            <p>Copyright © 2019 <a href="http://www.luxouxcompany.com">La Maison Luxoux Company</a>. Tous droits réservés.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="terms-conditions">
+                            <li><a href="#">Backoffice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="go-top">
+            <i class="fa fa-angle-double-up"></i>
+            <i class="fa fa-angle-double-up"></i>
+        </div>
         {% block javascripts %}
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <script src="{{ absolute_url(asset('assets/js/jquery-3.2.1.slim.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/popper.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/bootstrap.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/jquery.meanmenu.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/jquery.nice-select.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/wow.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/owl.carousel.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/jquery.magnific-popup.min.js')) }}"></script>
+            <script src="{{ absolute_url(asset('assets/js/custom.js')) }}"></script>
         {% endblock %}
     </body>
 </html>
